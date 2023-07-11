@@ -29,13 +29,8 @@ class ConfigService {
           password: this.getValue('PG_PASSWORD'),
           database: this.getValue('PG_DATABASE'),
     
-          entities: [__dirname + '/../**/**/entities/*.entity{.ts,.js}'],
-          // migrationsTableName: 'migration',
-          // migrations: ['src/migration/*.ts'],
-          // cli: {
-          //   migrationsDir: 'src/migration',
-          // },
-          // ssl: this.isProduction(),
+          entities: [__dirname + '/../**/**/entities/*.entity.ts'],
+          autoLoadEntities: true,
         };
     }
 
