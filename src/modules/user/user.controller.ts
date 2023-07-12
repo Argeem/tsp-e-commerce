@@ -9,6 +9,7 @@ export class UserController {
   //@UseGuards(JwtAuthGuard)
   @Post()
   saveUser(@Body() user: User): Promise<User>{
+    console.log(user)
     return this.userService.createUser(user);
   }
 

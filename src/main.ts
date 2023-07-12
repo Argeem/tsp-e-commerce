@@ -1,14 +1,15 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { configService } from './config/config.service';
 import { ConsoleLogger } from '@nestjs/common';
+import { ConfigService } from '@nestjs/config';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  await app.listen(configService.getPort());
+  const configService = app.get(ConfigService)
+  await app.listen(configService.get<number>('port'));
 
   const logger = new ConsoleLogger();
-  logger.log('Nest application running on PORT : ' + configService.getPort(), "NestApplication")
+  logger.log('Nest application running on PORT : ' + configService.get<number>('port'), "NestApplication")
 
 }
 bootstrap();

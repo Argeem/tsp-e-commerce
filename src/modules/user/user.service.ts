@@ -9,7 +9,7 @@ export class UserService {
   ) {}
 
   async createUser(input: User): Promise<User>{
-    return await this.userRepository.create(input);
+    return await this.userRepository.createUser(input);
   }
 
   async getAll(): Promise<User[]>{
